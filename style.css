@@ -2,47 +2,23 @@
     margin: 0;
     padding: 0;
 }
+
 body{
-    height: 100vh;
-}
-
-#canvas{
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    align-items: center;
-    padding-top: 300px;  
-}
-.button{
-    height: 100px;
-    width: 100px;
-    /* background-color: red; */
-    display: f;
-}
-
-#grey{
-     background-color: grey;
-         border: 2px solid black;
+     height: 100vh;
+ position: relative;   
 
 }
 
-#white{
-    background-color: white;
-    border: 2px solid black;
+.container{
+    position: relative;
+  align-items: center;
+  top: 250px;   
 }
 
-#blue{
-    background-color: blue;
-    border: 2px solid black;
+.container h1,p,button,div{
+    padding: 5px;
 }
 
-#yellow{
-    background-color: yellow; 
-    border: 2px solid black;
-
-}
-
-#text2{
-    padding-top: 10px;
-     padding-left: 400px;
+.container h1{
+ color: red;
 }
