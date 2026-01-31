@@ -2,23 +2,32 @@
     margin: 0;
     padding: 0;
 }
-
 body{
-     height: 100vh;
- position: relative;   
-
+    background-color: rgb(62, 62, 62);
 }
 
-.container{
-    position: relative;
-  align-items: center;
-  top: 250px;   
+.banner{
+    color: white;
+    padding: 10px
 }
 
-.container h1,p,button,div{
-    padding: 5px;
+.center{
+position: relative;
+top: 290px;
+    align-items: center;
+    /* background-color: red; */
+    height: 400px;
+    width: 250px;
 }
 
-.container h1{
- color: red;
+#clock{
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: yellow;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    /* text-decoration: solid; */
 }
