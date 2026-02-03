@@ -2,32 +2,91 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <title>DOM learning</title>
-    <style>
-      .bg-black{
-            background-color: #212121;
-            color: #fff;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htnml Events </title>
 </head>
-<body class="bg-black">
-    <link rel="stylesheet" href="./one.js">
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Amazing image</h2>
     <div >
-        <h1  id="title" class="heading">DOM learning on Chai aur code <span style="display: none;">test text</span></h1>
-        <h2>Lorem ipsum dolor sit.</h2>
-        <h2>Lorem ipsum dolor sit.</h2>
-        <h2>Lorem ipsum dolor sit.</h2>
-        <p>Lorem ipsum dolor     sit amet.</p>
-        <input type="password" name="" id="">
-
-        <ul>
-            <li class="list-item">one</li>  
-            <li class="list-item">two</li>
-            <li class="list-item">three</li>
-            <li class="list-item">four</li>
+        <ul id="images">
+            <li><img width="200px" id="photoshop" src="https://images.pexels.com/photos/3561339/pexels-photo-3561339.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="photoshop"></li>
+            <li><img width="200px" id="japan" src="https://images.pexels.com/photos/3532553/pexels-photo-3532553.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="river" src="https://images.pexels.com/photos/3532551/pexels-photo-3532551.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><img width="200px" id="owl" src="https://images.pexels.com/photos/3532552/pexels-photo-3532552.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt="" ></li>
+            <li><img width="200px" id="prayer" src="https://images.pexels.com/photos/2522671/pexels-photo-2522671.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load" alt=""></li>
+            <li><a style="color: aliceblue;" href="https://google.com" id="google">Google</a></li>
         </ul>
-    </div>
+   </div>
+</body>
+<script>
+//   document.getElementById('owl').onclick = function(){     // this is less modern has less function so we not use it
+//     alert('owl click');
+//   }
+
+//attachEvent()
+// jQuery - on
+
+//events :-
+// type, timestamp, defaultPrevented
+// target, toElement, srcElement, currentTarget,
+// clientX, clientY, screenX, screenY
+// altkey, ctrlkey, shiftkey, keyCode
+ 
+/* 
+
+ document.getElementById('images').addEventListener('click', function(e){
+        console.log("clicked inside the ul");
+    },false)
+
+ document.getElementById('owl').addEventListener('click', function(e){
+        console.log("owl clicked");                                                     
+  },false)
+      
+        //output when both are false when we click on the owl we get in console
+        //  1.owl clicked  
+        // 2.clicked inside the ul
+        */
+
+        /* 
+         // Output Capture Mode:-
+         document.getElementById('images').addEventListener('click', function(e){
+               console.log("click inside the ul");
+           },true)
+        
+         document.getElementById('owl').addEventListener('click', function(e){
+               console.log("owl clicked");                                                     
+           },true) 
+
+           //in this we will get first clicked inside the ul and then owl clicked  
+            // in this capturing goes from top to bottom 
+      */
+/*
+
+       document.getElementById('images').addEventListener('click', function(e){
+               console.log("click inside the ul");
+           },false)
+document.getElementById('owl').addEventListener('click', function(e){
+               console.log("owl clicked");
+               e.stopPropagation();         //when we use this our eleent will not buuble and go to up element means it will print only owl clicked when we click on owl other wise it will print both click inside the ul and owl clicked if we not use stop propogation                                           
+           },false)
+
+       */
+ 
+    //    document.getElementById('google').addEventListener('click',function(e){
+    //     console.log("google clicked")
+    //       e.preventDefault(); //after using this we will not redirect to google link after clicking as before
+    //    },false)
 
     
-</body>
-</html>
+       document.querySelector('#images').addEventListener('click',function(e){
+        console.log(e.target.tagName); //to get image only 
+        if(e.target.tagName === 'IMG'){    //to remove image only other wise if we click on image its ok but when we click on google it will delete all images because list parent is unorderlist  thats why we check tag name to remove only images   
+            console.log(e.target.id);
+            let removeIt = e.target.parentNode;
+            removeIt.remove();
+            //OR another method to rempve - >>       remoceIt.parentNode.removeChild(removeIt)
+        }
+       })
+     
+
+</script>
